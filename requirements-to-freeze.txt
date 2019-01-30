@@ -1,0 +1,7 @@
+astroid
+autopep8
+coverage
+numpy
+pep8
+pylint
+virtualenv
