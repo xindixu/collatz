@@ -20,6 +20,7 @@ def collatz_read(s):
     a = s.split()
     return [int(a[0]), int(a[1])]
 
+
 # ------------
 # collatz_eval
 # ------------

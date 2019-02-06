@@ -1,3 +1,27 @@
+commit 9a91529fcfac0acee225239e7d65ae3c55da569e
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 5 22:20:17 2019 -0600
+
+    removed .idea files
+
+commit 76a6d046c711d738a3d0472def85c0076b8a512d
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 5 22:11:45 2019 -0600
+
+    set .gitignore file
+
+commit 602a51def9e528aeb6a4c66b80c9f4203b4677f6
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 5 22:04:11 2019 -0600
+
+    fix import in TestCollatz.py
+
+commit db5929920823627e1262bcded2fb3dad5e560497
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 5 21:52:52 2019 -0600
+
+    init run & test
+
 commit 910fb69077b1367b3c14c2843f031be376c3e536
 Author: Xindi Xu <xindixu@utexas.edu>
 Date:   Tue Feb 5 21:34:30 2019 -0600
