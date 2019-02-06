@@ -6,3 +6,5 @@ __pycache__
 *.pyc
 *.tmp
 cs329e-collatz-tests
+.idea
+.idea/workspace.xml
