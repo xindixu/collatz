@@ -53,7 +53,7 @@ RunCollatz.tmp: RunCollatz.in RunCollatz.out RunCollatz.py
 	$(PYTHON) RunCollatz.py < RunCollatz.in > RunCollatz.tmp
 	diff --strip-trailing-cr RunCollatz.tmp RunCollatz.out
 
-TestCollatz.tmp: TestCollatz.py
+TestCollatz.tmp: TestCollatz.py Collatz.py
 	$(COVERAGE) run    --branch TestCollatz.py >  TestCollatz.tmp 2>&1
 	$(COVERAGE) report -m                      >> TestCollatz.tmp
 	cat TestCollatz.tmp
