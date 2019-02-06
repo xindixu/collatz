@@ -44,7 +44,7 @@ def collatz_eval(i, j):
         cyc_len = 1
         while i > 1:
             if i % 2 == 0:
-                i /= 2;
+                i = i >> 1
             else:
                 i = 3 * i + 1
             cyc_len += 1;
