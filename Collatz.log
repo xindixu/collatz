@@ -1,3 +1,33 @@
+commit 7f445053ae54d7dae9309258f66722ae64da32a7
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Sun Feb 10 19:41:01 2019 -0600
+
+    add more test cases
+
+commit c344d237ff1af7dc034329c97a90820630fe048f
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Wed Feb 6 17:33:57 2019 -0600
+
+    use bitshift to accelerate compute, add test case to prove that
+
+commit 48d71a51a6eb80948ae6c9d245153210a27c55e5
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Wed Feb 6 16:32:47 2019 -0600
+
+    change RunCollatz.out to avoid gitlab CI failure
+
+commit 512ccc1a6ea278ab992ae83f93f8dc06385a6bfd
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Wed Feb 6 16:24:29 2019 -0600
+
+    test cases for collatz_eval(), implement collatz_eval()
+
+commit 1040a029e3efca294cde0c51de42968b11eb6c8e
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Wed Feb 6 15:51:09 2019 -0600
+
+    add test cases for collatz_read()
+
 commit 9a91529fcfac0acee225239e7d65ae3c55da569e
 Author: Xindi Xu <xindixu@utexas.edu>
 Date:   Tue Feb 5 22:20:17 2019 -0600

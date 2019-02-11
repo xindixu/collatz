@@ -58,6 +58,11 @@ TestCollatz.tmp: TestCollatz.py Collatz.py RunCollatz.in
 	$(COVERAGE) report -m                      >> TestCollatz.tmp
 	cat TestCollatz.tmp
 
+
+TestCollatz2.tmp: TestCollatz.py Collatz.py RunCollatz.in
+	$(PYTHON) TestCollatz.py >  TestCollatz2.tmp 2>&1
+	cat TestCollatz2.tmp
+
 check:
 	@not_found=0;                                 \
     for i in $(FILES);                            \

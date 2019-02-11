@@ -15,6 +15,7 @@
 from io import StringIO
 from unittest import main, TestCase
 from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
+import logging
 
 # -----------
 # TestCollatz
@@ -87,6 +88,25 @@ class TestCollatz (TestCase):
     def test_eval_7(self):
         v = collatz_eval(5000, 10000)
         self.assertEqual(v, 262)
+
+    def test_eval_8(self):
+        try:
+            v = collatz_eval(0,1000000)
+        except AssertionError:
+            logging.error('from test_eval_8', exc_info=True)
+            pass
+
+    def test_eval_9(self):
+        try:
+            v = collatz_eval(0.3,0.4)
+        except AssertionError:
+            logging.error('from test_eval_9', exc_info=True)
+            pass
+
+    def test_eval_10(self):
+        v = collatz_eval(1,1)
+        self.assertEqual(v, 1)
+
 
 
     # -----
