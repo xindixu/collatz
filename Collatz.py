@@ -37,12 +37,12 @@ def collatz_eval(i, j):
     assert isinstance(j, int), "argument(s) is not an int"
 
     if i > j:
-        assert(j > 0), "argument(s) out of range"
-        assert(i < 1000000), "argument(s) out of range"
+        assert j > 0, "argument(s) out of range"
+        assert i < 1000000, "argument(s) out of range"
         r = range(j, i+1)
     else:
-        assert (i > 0), "argument(s) out of range"
-        assert (j < 1000000), "argument(s) out of range"
+        assert i > 0, "argument(s) out of range"
+        assert j < 1000000, "argument(s) out of range"
         r = range(i, j+1)
 
     max_cyc_len = 0;
@@ -59,8 +59,8 @@ def collatz_eval(i, j):
             max_cyc_len = cyc_len
 
     # post-condition
-    assert (max_cyc_len >= cyc_len), "max_cyc_len is less than one cyc_len"
-    assert (max_cyc_len >= 1), "max_cyc_len is less than 1"
+    assert max_cyc_len >= cyc_len, "max_cyc_len is less than one cyc_len"
+    assert max_cyc_len >= 1, "max_cyc_len is less than 1"
 
     return max_cyc_len
 
