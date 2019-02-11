@@ -9,7 +9,7 @@
 # ------------
 # collatz_read
 # ------------
-
+import json
 
 def collatz_read(s):
     """
@@ -45,10 +45,11 @@ def collatz_eval(i, j):
         assert j < 1000000, "argument(s) out of range"
         r = range(i, j+1)
 
-    max_cyc_len = 0;
+    max_cyc_len = 0
 
     for i in r:
         cyc_len = 1
+        ori_num = i
         while i > 1:
             if i % 2 == 0:
                 i = i >> 1
@@ -63,6 +64,99 @@ def collatz_eval(i, j):
     assert max_cyc_len >= 1, "max_cyc_len is less than 1"
 
     return max_cyc_len
+
+
+# ------------------
+# collatz_eval_use_cache
+# ------------------
+
+def collatz_eval_use_cache(i, j):
+    """
+    i the beginning of the range, inclusive
+    j the end       of the range, inclusive
+    return the max cycle length of the range [i, j]
+    """
+    # read cache
+    # pre-condition
+    assert isinstance(i, int), "argument(s) is not an int"
+    assert isinstance(j, int), "argument(s) is not an int"
+
+    if i > j:
+        assert j > 0, "argument(s) out of range"
+        assert i < 1000000, "argument(s) out of range"
+        r = range(j, i+1)
+    else:
+        assert i > 0, "argument(s) out of range"
+        assert j < 1000000, "argument(s) out of range"
+        r = range(i, j+1)
+
+    max_cyc_len = 0
+    num_gen_max_cyc = 1
+
+    for i in r:
+        cyc_len = 1
+        ori_num = i
+        while i > 1:
+            if i % 2 == 0:
+                i = i >> 1
+            else:
+                i = 3 * i + 1
+            cyc_len += 1;
+        if max_cyc_len < cyc_len:
+            max_cyc_len = cyc_len
+            num_gen_max_cyc = ori_num
+
+    # post-condition
+    assert max_cyc_len >= cyc_len, "max_cyc_len is less than one cyc_len"
+    assert max_cyc_len >= 1, "max_cyc_len is less than 1"
+
+    return max_cyc_len, num_gen_max_cyc
+
+
+# ------------------
+# collatz_eval_cache
+# ------------------
+
+def collatz_eval_cache(i, j):
+    """
+    i the beginning of the range, inclusive
+    j the end       of the range, inclusive
+    return the max cycle length of the range [i, j]
+    """
+    # pre-condition
+    assert isinstance(i, int), "argument(s) is not an int"
+    assert isinstance(j, int), "argument(s) is not an int"
+
+    if i > j:
+        assert j > 0, "argument(s) out of range"
+        assert i < 1000000, "argument(s) out of range"
+        r = range(j, i+1)
+    else:
+        assert i > 0, "argument(s) out of range"
+        assert j < 1000000, "argument(s) out of range"
+        r = range(i, j+1)
+
+    max_cyc_len = 0
+    num_gen_max_cyc = 1
+
+    for i in r:
+        cyc_len = 1
+        ori_num = i
+        while i > 1:
+            if i % 2 == 0:
+                i = i >> 1
+            else:
+                i = 3 * i + 1
+            cyc_len += 1;
+        if max_cyc_len < cyc_len:
+            max_cyc_len = cyc_len
+            num_gen_max_cyc = ori_num
+
+    # post-condition
+    assert max_cyc_len >= cyc_len, "max_cyc_len is less than one cyc_len"
+    assert max_cyc_len >= 1, "max_cyc_len is less than 1"
+
+    return max_cyc_len, num_gen_max_cyc
 
 # -------------
 # collatz_print
