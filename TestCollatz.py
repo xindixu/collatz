@@ -155,7 +155,6 @@ class TestCollatz (TestCase):
         v = collatz_eval_use_cache(12332, 222222)
         self.assertEqual(v, 386)
 
-
     def test_eval_use_cache_13(self):
         v = collatz_eval_use_cache(4379, 6171)
         self.assertEqual(v, 262)

@@ -144,10 +144,6 @@ def collatz_eval_use_cache(i, j):
         # caculate max_cyc_len in range
         max_cyc_len_upper = collatz_eval(upper_range,(upper_range//1000 * 1000))
 
-
-    return find_max(max_cyc_len_in_cache,max_cyc_len_lower,max_cyc_len_upper)
-
-    '''
     if max_cyc_len_in_cache > max_cyc_len_lower:
         if max_cyc_len_in_cache > max_cyc_len_upper:
             return max_cyc_len_in_cache
@@ -158,7 +154,6 @@ def collatz_eval_use_cache(i, j):
             return max_cyc_len_lower
         else:
             return max_cyc_len_upper
-    '''
 
 
 def find_max(a,b,c):
