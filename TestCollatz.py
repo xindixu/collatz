@@ -14,7 +14,9 @@
 
 from io import StringIO
 from unittest import main, TestCase
-from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, collatz_eval_use_cache, find_max
+from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, collatz_eval_use_cache
+# from SphereCollatz import collatz_read, collatz_eval, collatz_print, collatz_solve, collatz_eval_use_cache
+
 import logging
 
 # -----------
@@ -108,8 +110,8 @@ class TestCollatz (TestCase):
     # ----------------
 
     def test_eval_use_cache_1(self):
-        v = collatz_eval_use_cache(500,3750)
-        self.assertEqual(v, 238)
+        v = collatz_eval_use_cache(500,85500)
+        self.assertEqual(v, 351)
 
     def test_eval_use_cache_2(self):
         v = collatz_eval_use_cache(500,652)
@@ -167,30 +169,22 @@ class TestCollatz (TestCase):
         v = collatz_eval_use_cache(4379, 6172)
         self.assertEqual(v, 262)
 
+    def test_eval_use_cache_16(self):
+        v = collatz_eval_use_cache(127097, 128251)
+        self.assertEqual(v, 331)
 
-    def test_findMax_1(self):
-        v = find_max(1,2,3)
-        self.assertEqual(v, 3)
+    def test_eval_use_cache_17(self):
+        v = collatz_eval_use_cache(128251, 129993)
+        self.assertEqual(v, 344)
 
-    def test_findMax_2(self):
-        v = find_max(1,3,2)
-        self.assertEqual(v, 3)
+    def test_eval_use_cache_18(self):
+        v = collatz_eval_use_cache(127097, 129990)
+        self.assertEqual(v, 331)
 
-    def test_findMax_3(self):
-        v = find_max(2,3,1)
-        self.assertEqual(v, 3)
+    def test_eval_use_cache_19(self):
+        v = collatz_eval_use_cache(873300,390)
+        self.assertEqual(v, 525)
 
-    def test_findMax_4(self):
-        v = find_max(2,1,3)
-        self.assertEqual(v, 3)
-
-    def test_findMax_5(self):
-        v = find_max(3,2,1)
-        self.assertEqual(v, 3)
-
-    def test_findMax_6(self):
-        v = find_max(3,1,2)
-        self.assertEqual(v, 3)
 
     # -----
     # print

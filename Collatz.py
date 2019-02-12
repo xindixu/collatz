@@ -50,7 +50,6 @@ def collatz_eval(i, j):
 
     for i in r:
         cyc_len = 1
-        ori_num = i
         while i > 1:
             if i % 2 == 0:
                 i = i >> 1
@@ -155,19 +154,6 @@ def collatz_eval_use_cache(i, j):
         else:
             return max_cyc_len_upper
 
-
-def find_max(a,b,c):
-    if a > b:
-        if a > c:
-            return a
-        else:
-            return c
-    else:
-        if b > c:
-            return b
-        else:
-            return c
-
 # -------------
 # collatz_print
 # -------------
@@ -195,5 +181,5 @@ def collatz_solve(r, w):
     """
     for s in r:
         i, j = collatz_read(s)
-        v = collatz_eval(i, j)
+        v = collatz_eval_use_cache(i, j)
         collatz_print(w, i, j, v)
