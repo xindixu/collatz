@@ -180,6 +180,8 @@ def collatz_solve(r, w):
     w a writer
     """
     for s in r:
+        if not s.strip():
+            continue
         i, j = collatz_read(s)
         v = collatz_eval_use_cache(i, j)
         collatz_print(w, i, j, v)
