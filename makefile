@@ -9,10 +9,10 @@ FILES :=                              \
     RunCollatz.py                     \
     TestCollatz.out                   \
     TestCollatz.py
-	 # cs329e-collatz-tests/xindixu-RunCollatz.in   		
-	 # cs329e-collatz-tests/xindixu-RunCollatz.out  		
-	 # cs329e-collatz-tests/xindixu-TestCollatz.out 		
-	 # cs329e-collatz-tests/xindixu-TestCollatz.py	 		
+	 # cs329e-collatz-tests/xindixu-RunCollatz.in
+	 # cs329e-collatz-tests/xindixu-RunCollatz.out
+	 # cs329e-collatz-tests/xindixu-TestCollatz.out
+	 # cs329e-collatz-tests/xindixu-TestCollatz.py
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
@@ -131,4 +131,4 @@ versions:
 profile: RunCollatz.py RunCollatz.in
 	python3 -m cProfile RunCollatz.py < RunCollatz.in
 
-test: Collatz.html Collatz.log RunCollatz.tmp TestCollatz.tmp collatz-tests check
+test: Collatz.html Collatz.log RunCollatz.tmp TestCollatz.tmp check
