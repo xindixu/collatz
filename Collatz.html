@@ -10,9 +10,14 @@
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/xindixu/Apps/collatz/Collatz.py">/Users/xindixu/Apps/collatz/Collatz.py</a></font></td></tr></table>
     <p><tt>#&nbsp;---------------------------<br>
-#&nbsp;projects/collatz/Collatz.py<br>
-#&nbsp;Copyright&nbsp;(C)&nbsp;2016<br>
-#&nbsp;Glenn&nbsp;P.&nbsp;Downing<br>
+#&nbsp;Original:<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;projects/collatz/Collatz.py<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2016<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Glenn&nbsp;P.&nbsp;Downing<br>
+#<br>
+#&nbsp;Project&nbsp;1:<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CS&nbsp;329E&nbsp;Software&nbsp;Engineering<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Xindi&nbsp;Xu&nbsp;(xx2673)<br>
 #&nbsp;---------------------------</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -23,16 +28,75 @@
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-collatz_eval"><strong>collatz_eval</strong></a>(i, j)</dt><dd><tt>i&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
 j&nbsp;the&nbsp;end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
-return&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length&nbsp;of&nbsp;the&nbsp;range&nbsp;[i,&nbsp;j]</tt></dd></dl>
- <dl><dt><a name="-collatz_print"><strong>collatz_print</strong></a>(w, i, j, v)</dt><dd><tt>print&nbsp;three&nbsp;ints<br>
+return&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length&nbsp;of&nbsp;the&nbsp;range&nbsp;[i,&nbsp;j]<br>
+&nbsp;<br>
+1.&nbsp;create&nbsp;range&nbsp;object&nbsp;and&nbsp;flip&nbsp;the&nbsp;args&nbsp;if&nbsp;needed<br>
+2.&nbsp;for&nbsp;all&nbsp;numbers&nbsp;in&nbsp;the&nbsp;range:<br>
+3.&nbsp;find&nbsp;the&nbsp;cycle&nbsp;length&nbsp;with:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;i&nbsp;&gt;&nbsp;1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;odd:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;3&nbsp;+&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;1<br>
+3.&nbsp;save&nbsp;&amp;&nbsp;update&nbsp;the&nbsp;max_cyc_len</tt></dd></dl>
+ <dl><dt><a name="-collatz_eval_cache"><strong>collatz_eval_cache</strong></a>(i, j)</dt><dd><tt>helper&nbsp;function<br>
+generate&nbsp;cache,&nbsp;same&nbsp;as&nbsp;<a href="#-collatz_eval">collatz_eval</a>()&nbsp;but&nbsp;return&nbsp;a&nbsp;tuple&nbsp;(max_cyc_len,&nbsp;num_gen_max_cyc)</tt></dd></dl>
+ <dl><dt><a name="-collatz_eval_use_cache"><strong>collatz_eval_use_cache</strong></a>(i, j)</dt><dd><tt>use&nbsp;cache&nbsp;to&nbsp;calculate<br>
+&nbsp;<br>
+if:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abs(i-j)&nbsp;&lt;&nbsp;1000,&nbsp;use&nbsp;<a href="#-collatz_eval">collatz_eval</a>(i,j)<br>
+&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;compute&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;complete&nbsp;ranges<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1&nbsp;compute&nbsp;lowest_complete_range_index&nbsp;&amp;&nbsp;highest_complete_range_index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(lowest&nbsp;&amp;&nbsp;highest&nbsp;index&nbsp;for&nbsp;complete&nbsp;ranges)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;args&nbsp;537&nbsp;have&nbsp;indexs&nbsp;of&nbsp;2,&nbsp;representing&nbsp;[1001,2000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;3099&nbsp;have&nbsp;indexs&nbsp;of&nbsp;4,&nbsp;representing&nbsp;[2001,3000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2&nbsp;retrieve&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;these&nbsp;ranges&nbsp;and&nbsp;find&nbsp;maximum<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;compute&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;incomplete&nbsp;ranges<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;[537,&nbsp;3099]&nbsp;has&nbsp;incomplete&nbsp;ranges&nbsp;of&nbsp;[537,&nbsp;1000]&nbsp;and&nbsp;[3001,3099]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1&nbsp;compute&nbsp;indexs&nbsp;for&nbsp;number&nbsp;that&nbsp;generate&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;lower&nbsp;and&nbsp;upper&nbsp;incompelte&nbsp;ranges<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;args&nbsp;537&nbsp;have&nbsp;indexs&nbsp;of&nbsp;1,&nbsp;representing&nbsp;num_gen_max_cyc&nbsp;in&nbsp;[1,1000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;3099&nbsp;have&nbsp;indexs&nbsp;of&nbsp;7,&nbsp;representing&nbsp;num_gen_max_cyc&nbsp;in&nbsp;[3001,4000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2&nbsp;for&nbsp;i&nbsp;(lower&nbsp;end):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num_gen_max_cyc&nbsp;is&nbsp;within&nbsp;[537,1000]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save&nbsp;the&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;<a href="#-collatz_eval">collatz_eval</a>(537,1000)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3&nbsp;for&nbsp;j&nbsp;(upper&nbsp;end):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num_gen_max_cyc&nbsp;is&nbsp;within&nbsp;[3001,3099]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save&nbsp;the&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;<a href="#-collatz_eval">collatz_eval</a>(3000,3099)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;find&nbsp;the&nbsp;maximum&nbsp;among&nbsp;max_cyc_len&nbsp;in&nbsp;complete&nbsp;ranges,&nbsp;lower&nbsp;incomplete&nbsp;range&nbsp;and&nbsp;upper&nbsp;incomplete&nbsp;range</tt></dd></dl>
+ <dl><dt><a name="-collatz_print"><strong>collatz_print</strong></a>(w, i, j, v)</dt><dd><tt>print&nbsp;3&nbsp;ints:&nbsp;beginning&nbsp;&amp;&nbsp;end&nbsp;of&nbsp;the&nbsp;range&nbsp;and&nbsp;result<br>
 w&nbsp;a&nbsp;writer<br>
 i&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
 j&nbsp;the&nbsp;end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;range,&nbsp;inclusive<br>
 v&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length</tt></dd></dl>
- <dl><dt><a name="-collatz_read"><strong>collatz_read</strong></a>(s)</dt><dd><tt>read&nbsp;two&nbsp;ints<br>
-s&nbsp;a&nbsp;string<br>
-return&nbsp;a&nbsp;list&nbsp;of&nbsp;two&nbsp;ints,&nbsp;representing&nbsp;the&nbsp;beginning&nbsp;and&nbsp;end&nbsp;of&nbsp;a&nbsp;range,&nbsp;[i,&nbsp;j]</tt></dd></dl>
+ <dl><dt><a name="-collatz_read"><strong>collatz_read</strong></a>(s)</dt><dd><tt>read&nbsp;2&nbsp;ints&nbsp;as&nbsp;a&nbsp;string<br>
+return&nbsp;a&nbsp;list&nbsp;of&nbsp;2&nbsp;ints,&nbsp;representing&nbsp;the&nbsp;beginning&nbsp;and&nbsp;end&nbsp;of&nbsp;a&nbsp;range,&nbsp;[i,&nbsp;j],&nbsp;inclusive</tt></dd></dl>
  <dl><dt><a name="-collatz_solve"><strong>collatz_solve</strong></a>(r, w)</dt><dd><tt>r&nbsp;a&nbsp;reader<br>
 w&nbsp;a&nbsp;writer</tt></dd></dl>
-</td></tr></table>
+ <dl><dt><a name="-generate_cache"><strong>generate_cache</strong></a>()</dt><dd><tt>cache:<br>
+max_cyc_len:&nbsp;max&nbsp;cycle&nbsp;length&nbsp;in&nbsp;the&nbsp;ranges&nbsp;of&nbsp;1000<br>
+num_gen_max_cyc:&nbsp;number&nbsp;that&nbsp;generate&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length<br>
+&nbsp;<br>
+structure:&nbsp;[max_cyc_len,num_gen_max_cyc]<br>
+&nbsp;<br>
+index&nbsp;0,&nbsp;1&nbsp;for&nbsp;[1,&nbsp;&nbsp;&nbsp;1000]<br>
+index&nbsp;2,&nbsp;3&nbsp;for&nbsp;[1001,2000]<br>
+index&nbsp;4,&nbsp;5&nbsp;for&nbsp;[2001,3000]<br>
+index&nbsp;6,&nbsp;7&nbsp;for&nbsp;[3001,4000]<br>
+...<br>
+index&nbsp;1998,&nbsp;1999&nbsp;for&nbsp;[999001,1000000]</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>cache</strong> = [179, 871, 182, 1161, 217, 2919, 238, 3711, 215, 4379, 236, 5567, 262, 6171, 252, 7963, 247, 8959, 260, 9257, ...]</td></tr></table>
 </body></html>

@@ -5,6 +5,6 @@ __pycache__
 .pylintrc
 *.pyc
 *.tmp
-cs329e-collatz-tests
 .idea
 .idea/workspace.xml
+cs329e-collatz-tests

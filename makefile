@@ -9,12 +9,10 @@ FILES :=                              \
     RunCollatz.py                     \
     TestCollatz.out                   \
     TestCollatz.py
-
-#    collatz-tests/YourGitLabID-RunCollatz.in   \
-#    collatz-tests/YourGitLabID-RunCollatz.out  \
-#    collatz-tests/YourGitLabID-TestCollatz.out \
-#    collatz-tests/YourGitLabID-TestCollatz.py  \
-#
+	 # cs329e-collatz-tests/xindixu-RunCollatz.in   		
+	 # cs329e-collatz-tests/xindixu-RunCollatz.out  		
+	 # cs329e-collatz-tests/xindixu-TestCollatz.out 		
+	 # cs329e-collatz-tests/xindixu-TestCollatz.py	 		
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
@@ -57,11 +55,6 @@ TestCollatz.tmp: TestCollatz.py Collatz.py RunCollatz.in
 	$(COVERAGE) run    --branch TestCollatz.py >  TestCollatz.tmp 2>&1
 	$(COVERAGE) report -m                      >> TestCollatz.tmp
 	cat TestCollatz.tmp
-
-
-TestCollatz2.tmp: TestCollatz.py Collatz.py RunCollatz.in
-	$(PYTHON) TestCollatz.py >  TestCollatz2.tmp 2>&1
-	cat TestCollatz2.tmp
 
 check:
 	@not_found=0;                                 \
@@ -134,5 +127,8 @@ versions:
 	@echo
 	which    $(PYTHON)
 	python   --version
+
+profile: RunCollatz.py RunCollatz.in
+	python3 -m cProfile RunCollatz.py < RunCollatz.in
 
 test: Collatz.html Collatz.log RunCollatz.tmp TestCollatz.tmp collatz-tests check

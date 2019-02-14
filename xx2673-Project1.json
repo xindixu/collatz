@@ -1,0 +1,16 @@
+{
+  "Project #1": {
+    "EID": "xx2673",
+	"First Name": "Xindi",
+	"Last Name": "Xu",
+	"E-mail": "xindixu@utexas.edu",
+    "GitLab Username": "xindixu",
+    "GitLab URL": "https://gitlab.com/xindixu/collatz",
+    "Git SHA": "",
+    "GitLab Pipeline URL": "",
+    "Estimated Completion Time (hours: int)": 0,
+    "Actual Completion Time (hours: int)": 0,
+    "Completed Sphere Challenge": true,
+    "Comments": ""
+  }
+}

@@ -20,6 +20,7 @@ from Collatz import collatz_solve
 if __name__ == "__main__":
     collatz_solve(sys.stdin, sys.stdout)
 
+
 """ #pragma: no cover
 % cat RunCollatz.in
 1 10
