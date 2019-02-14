@@ -228,6 +228,8 @@ class TestCollatz (TestCase):
         self.assertEqual(
             w.getvalue(), "999999 1 525\n2 80000 351\n80000 2 351\n3 4 8\n")
 
+
+
 # ----
 # main
 # ----

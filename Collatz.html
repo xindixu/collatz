@@ -39,7 +39,8 @@ return&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length&nbsp;of&nbsp;the&nbsp;range&nbsp
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;1<br>
 3.&nbsp;save&nbsp;&amp;&nbsp;update&nbsp;the&nbsp;max_cyc_len</tt></dd></dl>
- <dl><dt><a name="-collatz_eval_cache"><strong>collatz_eval_cache</strong></a>(i, j)</dt><dd><tt>helper&nbsp;function<br>
+ <dl><dt><a name="-collatz_eval_cache"><strong>collatz_eval_cache</strong></a>(i, j)</dt><dd><tt>HELPER&nbsp;FUNCTION<br>
+helper&nbsp;function<br>
 generate&nbsp;cache,&nbsp;same&nbsp;as&nbsp;<a href="#-collatz_eval">collatz_eval</a>()&nbsp;but&nbsp;return&nbsp;a&nbsp;tuple&nbsp;(max_cyc_len,&nbsp;num_gen_max_cyc)</tt></dd></dl>
  <dl><dt><a name="-collatz_eval_use_cache"><strong>collatz_eval_use_cache</strong></a>(i, j)</dt><dd><tt>use&nbsp;cache&nbsp;to&nbsp;calculate<br>
 &nbsp;<br>
@@ -49,15 +50,15 @@ if:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;compute&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;complete&nbsp;ranges<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1&nbsp;compute&nbsp;lowest_complete_range_index&nbsp;&amp;&nbsp;highest_complete_range_index<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(lowest&nbsp;&amp;&nbsp;highest&nbsp;index&nbsp;for&nbsp;complete&nbsp;ranges)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;args&nbsp;537&nbsp;have&nbsp;indexs&nbsp;of&nbsp;2,&nbsp;representing&nbsp;[1001,2000]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;3099&nbsp;have&nbsp;indexs&nbsp;of&nbsp;4,&nbsp;representing&nbsp;[2001,3000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;args&nbsp;537&nbsp;have&nbsp;indexes&nbsp;of&nbsp;2,&nbsp;representing&nbsp;[1001,2000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;3099&nbsp;have&nbsp;indexes&nbsp;of&nbsp;4,&nbsp;representing&nbsp;[2001,3000]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2&nbsp;retrieve&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;these&nbsp;ranges&nbsp;and&nbsp;find&nbsp;maximum<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;compute&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;incomplete&nbsp;ranges<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;[537,&nbsp;3099]&nbsp;has&nbsp;incomplete&nbsp;ranges&nbsp;of&nbsp;[537,&nbsp;1000]&nbsp;and&nbsp;[3001,3099]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1&nbsp;compute&nbsp;indexs&nbsp;for&nbsp;number&nbsp;that&nbsp;generate&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;lower&nbsp;and&nbsp;upper&nbsp;incompelte&nbsp;ranges<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;args&nbsp;537&nbsp;have&nbsp;indexs&nbsp;of&nbsp;1,&nbsp;representing&nbsp;num_gen_max_cyc&nbsp;in&nbsp;[1,1000]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;3099&nbsp;have&nbsp;indexs&nbsp;of&nbsp;7,&nbsp;representing&nbsp;num_gen_max_cyc&nbsp;in&nbsp;[3001,4000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1&nbsp;compute&nbsp;indexes&nbsp;for&nbsp;number&nbsp;that&nbsp;generate&nbsp;the&nbsp;max_cyc_len&nbsp;in&nbsp;lower&nbsp;and&nbsp;upper&nbsp;incompelte&nbsp;ranges<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;args&nbsp;537&nbsp;have&nbsp;indexes&nbsp;of&nbsp;1,&nbsp;representing&nbsp;num_gen_max_cyc&nbsp;in&nbsp;[1,1000]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;3099&nbsp;have&nbsp;indexes&nbsp;of&nbsp;7,&nbsp;representing&nbsp;num_gen_max_cyc&nbsp;in&nbsp;[3001,4000]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2&nbsp;for&nbsp;i&nbsp;(lower&nbsp;end):<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num_gen_max_cyc&nbsp;is&nbsp;within&nbsp;[537,1000]:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save&nbsp;the&nbsp;number<br>
@@ -79,7 +80,8 @@ v&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length</tt></dd></dl>
 return&nbsp;a&nbsp;list&nbsp;of&nbsp;2&nbsp;ints,&nbsp;representing&nbsp;the&nbsp;beginning&nbsp;and&nbsp;end&nbsp;of&nbsp;a&nbsp;range,&nbsp;[i,&nbsp;j],&nbsp;inclusive</tt></dd></dl>
  <dl><dt><a name="-collatz_solve"><strong>collatz_solve</strong></a>(r, w)</dt><dd><tt>r&nbsp;a&nbsp;reader<br>
 w&nbsp;a&nbsp;writer</tt></dd></dl>
- <dl><dt><a name="-generate_cache"><strong>generate_cache</strong></a>()</dt><dd><tt>cache:<br>
+ <dl><dt><a name="-generate_cache"><strong>generate_cache</strong></a>()</dt><dd><tt>HELPER&nbsp;FUNCTION<br>
+cache:<br>
 max_cyc_len:&nbsp;max&nbsp;cycle&nbsp;length&nbsp;in&nbsp;the&nbsp;ranges&nbsp;of&nbsp;1000<br>
 num_gen_max_cyc:&nbsp;number&nbsp;that&nbsp;generate&nbsp;the&nbsp;max&nbsp;cycle&nbsp;length<br>
 &nbsp;<br>

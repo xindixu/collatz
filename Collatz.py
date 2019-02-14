@@ -97,15 +97,15 @@ def collatz_eval_use_cache(i, j):
         1. compute the max_cyc_len in complete ranges
             1.1 compute lowest_complete_range_index & highest_complete_range_index
                 (lowest & highest index for complete ranges)
-                i.e. args 537 have indexs of 2, representing [1001,2000]
-                     args 3099 have indexs of 4, representing [2001,3000]
+                i.e. args 537 have indexes of 2, representing [1001,2000]
+                     args 3099 have indexes of 4, representing [2001,3000]
             1.2 retrieve the max_cyc_len in these ranges and find maximum
 
         2. compute the max_cyc_len in incomplete ranges
             i.e. [537, 3099] has incomplete ranges of [537, 1000] and [3001,3099]
-            2.1 compute indexs for number that generate the max_cyc_len in lower and upper incompelte ranges
-                i.e. args 537 have indexs of 1, representing num_gen_max_cyc in [1,1000]
-                     args 3099 have indexs of 7, representing num_gen_max_cyc in [3001,4000]
+            2.1 compute indexes for number that generate the max_cyc_len in lower and upper incompelte ranges
+                i.e. args 537 have indexes of 1, representing num_gen_max_cyc in [1,1000]
+                     args 3099 have indexes of 7, representing num_gen_max_cyc in [3001,4000]
             2.2 for i (lower end):
                 if num_gen_max_cyc is within [537,1000]:
                     save the number
@@ -229,6 +229,7 @@ def collatz_solve(r, w):
 
 def collatz_eval_cache(i, j):
     """
+    HELPER FUNCTION
     helper function
     generate cache, same as collatz_eval() but return a tuple (max_cyc_len, num_gen_max_cyc)
     """
@@ -273,6 +274,7 @@ def collatz_eval_cache(i, j):
 # ------------------------
 def generate_cache():
     """
+    HELPER FUNCTION
     cache:
     max_cyc_len: max cycle length in the ranges of 1000
     num_gen_max_cyc: number that generate the max cycle length
