@@ -1,3 +1,81 @@
+commit e9031851334bac0fc66b8bfa4a94e14c4bcce02a
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Wed Feb 13 21:27:50 2019 -0600
+
+    add doc
+
+commit 4b13212b9014971fecf98dc9ab57ac1adbe4ae7d
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 12 20:19:40 2019 -0600
+
+    change unittesting for public repo
+
+commit 23fca4e88ef9639b785741345d4deddd88232431
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 12 20:12:37 2019 -0600
+
+    prep for public test repo
+
+commit 1142639de1146345cf8310656ad3393b86e37ad6
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Tue Feb 12 19:53:08 2019 -0600
+
+    more acceptance test & accepted by Sphere!
+
+commit aeeb3ffb6c9f95a5c79bd23f19f2646146e2edbc
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Mon Feb 11 21:02:57 2019 -0600
+
+    try Sphere
+
+commit d94d4d748dda27dba2daca20cd2f02d9c18fea74
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Mon Feb 11 19:05:31 2019 -0600
+
+    update SphereCollatz
+
+commit b3ab4249b5683286fce29e72f34ce2e30fdd1902
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Mon Feb 11 19:01:48 2019 -0600
+
+    implement cache
+
+commit 512ec3a5f09c3953d4b71ebf1161a543ee256d7c
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Mon Feb 11 13:46:53 2019 -0600
+
+    generate cache
+
+commit e19620ff83fb2496228c84a81323cbe3bca2d00f
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Sun Feb 10 23:42:28 2019 -0600
+
+    generate cache
+
+commit 8fc207bdebee98ce922efdff7bd8092e66838c36
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Sun Feb 10 22:52:43 2019 -0600
+
+    fix runCollatz.out for CI
+
+commit 98444073d8d980608cce4bec6455bd50a0c21e5e
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Sun Feb 10 22:49:01 2019 -0600
+
+    fixed runCollatz.in for CI
+
+commit ed520dbdabdba61c977a98c9ccb3357f87707a37
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Sun Feb 10 22:37:43 2019 -0600
+
+    fix assertions
+
+commit 5533a78bd6ea6bc3c3631147d876f5cafe1655ed
+Author: Xindi Xu <xindixu@utexas.edu>
+Date:   Sun Feb 10 22:30:38 2019 -0600
+
+    add unittests for eval()
+
 commit 7f445053ae54d7dae9309258f66722ae64da32a7
 Author: Xindi Xu <xindixu@utexas.edu>
 Date:   Sun Feb 10 19:41:01 2019 -0600
