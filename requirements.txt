@@ -21,7 +21,7 @@ chardet==3.0.4
 -e git+https://github.com/cguethle/chargebee-python.git@ab287d21c67d049eda2b798080ff87c2aabae38b#egg=chargebee
 click==6.7
 coverage==4.5.2
-cryptography==2.4.2
+cryptography==3.2
 decorator==4.3.0
 defusedxml==0.5.0
 Django==2.0.4
